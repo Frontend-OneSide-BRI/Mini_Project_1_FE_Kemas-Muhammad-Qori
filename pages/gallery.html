@@ -4,6 +4,13 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Icon Website -->
+        <link
+            rel="icon"
+            href="https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685464311/oneArt/logo-project_qwfhjo.png"
+        />
+
+        <!-- Bootstrap CDN -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -15,7 +22,182 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"
         ></script>
-        <title>Oneside Gallery</title>
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="./assets/css/style.css" />
+
+        <!-- Font awesome CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>OneSide Gallery</title>
     </head>
-    <body></body>
+    <body>
+        <!-- Section Navbar -->
+        <section class="container">
+            <nav class="navbar navbar-expand-lg bg-transparent">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"
+                        ><img
+                            src="https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685464311/oneArt/logo-project_qwfhjo.png"
+                            width="30"
+                            alt=""
+                        />
+                        OneArt</a
+                    >
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarNavDropdown"
+                    >
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    aria-current="page"
+                                    href="../index.html"
+                                    >Home</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./gallery.html"
+                                    >Gallery</a
+                                >
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="dropdown-toggle nav-link"
+                                    href="./pages/gallery.html"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Category
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#painter"
+                                            >Paint</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="#filmMaker"
+                                            >Film</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-success" href="#"
+                                    >Sign In</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <!-- End Section Navbar -->
+
+        <!-- Section Hero -->
+        <div class="px-4 py-5 my-5 text-center">
+            <img
+                src="https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685471581/oneArt/header-gallery_y1ou7s.png"
+                alt=""
+                width="350"
+                class="d-block mx-auto mb-4"
+            />
+            <h1 class="display-5 fw-bold">Gallery</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Recusandae enim qui ipsam veritatis quae quidem aliquam hic
+                    amet assumenda atque.
+                </p>
+            </div>
+        </div>
+        <!-- end Section Hero -->
+
+        <!-- section Category -->
+
+        <div class="container mb-5">
+            <div class="d-flex justify-content-center mb-2">
+                <button id="btnAll" class="btn btn-success px-5">All</button>
+                <button id="btnPaint" class="btn btn-primary mx-2 px-5">
+                    Paint
+                </button>
+                <button id="btnFilm" class="btn btn-info px-5">Film</button>
+            </div>
+            <hr />
+            <div class="row mb-4" id="contentCategoryPainter">
+                <h1>Paint</h1>
+            </div>
+            <div class="row" id="contentCategoryFilm">
+                <h1>Film</h1>
+            </div>
+        </div>
+
+        <!-- end section category -->
+
+        <!-- Footer -->
+        <div class="container">
+            <footer
+                class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+            >
+                <p>&copy; 2023 | OneArt</p>
+                <a
+                    href="#"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 link-dark text-decoration-none"
+                >
+                    <img
+                        src="https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685464311/oneArt/logo-project_qwfhjo.png"
+                        width="50"
+                        alt=""
+                    />
+                </a>
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-2 text-muted">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="./pages/gallery.html"
+                            class="nav-link px-2 text-muted"
+                            >Gallery</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="#painter" class="nav-link px-2 text-muted"
+                            >Painter</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a href="#filmMaker" class="nav-link px-2 text-muted"
+                            >Film Maker</a
+                        >
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="../assets/js/script.js"></script>
+    </body>
 </html>
