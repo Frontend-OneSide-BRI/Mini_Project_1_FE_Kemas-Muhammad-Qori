@@ -149,30 +149,6 @@
     transform: rotate(-15deg);
 }
 /* end Gallery */
-.parallax-painter {
-    background-image: url("https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685471581/oneArt/paint-category_yu9icy.png");
-
-    /* Set a specific height */
-    min-height: 400px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.parallax-film {
-    background-image: url("https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685471580/oneArt/photography-cat_ak3xlj.png");
-
-    /* Set a specific height */
-    min-height: 500px;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 @media screen and (min-width: 768px) {
     .carousel-item img {

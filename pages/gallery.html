@@ -24,7 +24,7 @@
         ></script>
 
         <!-- External CSS -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/gallery.css" />
 
         <!-- Font awesome CDN -->
         <link
@@ -104,13 +104,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item me-2">
-                                <a class="btn btn-outline-success" href="#"
-                                    >Sign In</a
-                                >
-                            </li>
-                        </ul>
+                        <ul class="navbar-nav" id="navLoginContent"></ul>
                     </div>
                 </div>
             </nav>
@@ -118,22 +112,24 @@
         <!-- End Section Navbar -->
 
         <!-- Section Hero -->
-        <div class="px-4 py-5 my-5 text-center">
-            <img
-                src="https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685471581/oneArt/header-gallery_y1ou7s.png"
-                alt=""
-                width="350"
-                class="d-block mx-auto mb-4"
-            />
-            <h1 class="display-5 fw-bold">Gallery</h1>
-            <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Recusandae enim qui ipsam veritatis quae quidem aliquam hic
-                    amet assumenda atque.
-                </p>
+        <section class="parallax">
+            <div class="hero px-4 py-5 mb-5 text-center">
+                <img
+                    src="https://res.cloudinary.com/dgnbjxh5i/image/upload/v1685471581/oneArt/header-gallery_y1ou7s.png"
+                    alt=""
+                    width="350"
+                    class="d-block mx-auto mb-4"
+                />
+                <h1 class="display-5 fw-bold text-white">Gallery</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 text-white">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Recusandae enim qui ipsam veritatis quae quidem
+                        aliquam hic amet assumenda atque.
+                    </p>
+                </div>
             </div>
-        </div>
+        </section>
         <!-- end Section Hero -->
 
         <!-- section Category -->
@@ -198,6 +194,6 @@
             </footer>
         </div>
 
-        <script src="../assets/js/script.js"></script>
+        <script src="../assets/js/gallery.js"></script>
     </body>
 </html>
