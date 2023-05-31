@@ -88,6 +88,8 @@ const category = [
 const btnAll = document.getElementById("btnAll");
 const btnPaint = document.getElementById("btnPaint");
 const btnFilm = document.getElementById("btnFilm");
+const btnLogin = document.getElementById("btnLogin");
+const btnRegister = document.getElementById("btnRegister");
 const contentCategoryPainter = document.getElementById(
     "contentCategoryPainter"
 );
@@ -95,30 +97,30 @@ const contentCategoryFilm = document.getElementById("contentCategoryFilm");
 
 btnAll.addEventListener("click", () => {
     category[0].subCategory.map(
-        (d, i) =>
+        (item) =>
             (contentCategoryPainter.innerHTML += `
                 <div class="col-6 col-sm-4 col-lg-3 mb-3">
                     <div class="card card-dom">
-                        <img src="${d.creation.image}" class="card-img-top" alt="..." height="250">
+                        <img src="${item.creation.image}" class="card-img-top" alt="..." height="250">
                         <div class="card-body">
-                            <p class="card-text fw-bold">${d.creation.title}</p>
-                            <p class="card-text">${d.painterName}</p>
-                            <small>${d.creation.year}</small>
+                            <p class="card-text fw-bold">${item.creation.title}</p>
+                            <p class="card-text">${item.painterName}</p>
+                            <small>${item.creation.year}</small>
                         </div>
                     </div>
                 </div>
             `)
     );
     category[1].subCategory.map(
-        (d, i) =>
+        (item) =>
             (contentCategoryFilm.innerHTML += `
                 <div class="col-6 col-sm-4 col-lg-3 mb-3">
                     <div class="card card-dom">
-                        <img src="${d.creation.image}" class="card-img-top" alt="..." height="250">
+                        <img src="${item.creation.image}" class="card-img-top" alt="..." height="250">
                         <div class="card-body">
-                            <p class="card-text fw-bold">${d.creation.filmName}</p>
-                            <p class="card-text">${d.directorName}</p>
-                            <small>${d.creation.year}</small>
+                            <p class="card-text fw-bold">${item.creation.filmName}</p>
+                            <p class="card-text">${item.directorName}</p>
+                            <small>${item.creation.year}</small>
                         </div>
                     </div>
                 </div>
@@ -128,15 +130,15 @@ btnAll.addEventListener("click", () => {
 
 btnPaint.addEventListener("click", () => {
     category[0].subCategory.map(
-        (d) =>
+        (item) =>
             (contentCategoryPainter.innerHTML += `
                     <div class="col-6 col-sm-4 col-lg-3 mb-3">
                         <div class="card card-dom">
-                            <img src="${d.creation.image}" class="card-img-top" alt="..." height="250">
+                            <img src="${item.creation.image}" class="card-img-top" alt="..." height="250">
                             <div class="card-body">
-                                <p class="card-text fw-bold">${d.creation.title}</p>
-                                <p class="card-text">${d.painterName}</p>
-                                <small>${d.creation.year}</small>
+                                <p class="card-text fw-bold">${item.creation.title}</p>
+                                <p class="card-text">${item.painterName}</p>
+                                <small>${item.creation.year}</small>
                             </div>
                         </div>
                     </div>
@@ -146,15 +148,15 @@ btnPaint.addEventListener("click", () => {
 btnFilm.addEventListener("click", () => {
     // console.log(category[1].subCategory[0].creation.filmName);
     category[1].subCategory.map(
-        (d, i) =>
+        (item) =>
             (contentCategoryFilm.innerHTML += `
                 <div class="col-6 col-sm-4 col-lg-3 mb-3">
                     <div class="card card-dom">
-                        <img src="${d.creation.image}" class="card-img-top" alt="..." height="250">
+                        <img src="${item.creation.image}" class="card-img-top" alt="..." height="250">
                         <div class="card-body">
-                            <p class="card-text fw-bold">${d.creation.filmName}</p>
-                            <p class="card-text">${d.directorName}</p>
-                            <small>${d.creation.year}</small>
+                            <p class="card-text fw-bold">${item.creation.filmName}</p>
+                            <p class="card-text">${item.directorName}</p>
+                            <small>${item.creation.year}</small>
                         </div>
                     </div>
                 </div>
@@ -166,25 +168,10 @@ const navLoginContent = document.getElementById("navLoginContent");
 
 const checkUserInfo = () => {
     const userStorage = localStorage.getItem("user");
-    localStorage.setItem(
-        "user",
-        JSON.stringify({
-            "name": "Qori",
-        })
-    );
     const userInfo = JSON.parse(userStorage);
-    if (userStorage === null) {
-        navLoginContent.innerHTML = `
-            <li class="nav-item me-2">
-                <a class="btn btn-outline-success" href="#"
-                    >Sign In</a
-                >
-            </li>
-            <li class="nav-item me-2">
-                <a class="btn btn-success" href="#">Sign Up</a>
-            </li>
-        `;
-    } else {
+    const authorize = sessionStorage.getItem("authorize");
+
+    if (!!authorize) {
         navLoginContent.innerHTML = `
             <li class="nav-item me-2">
                 <a class="btn btn-outline-success" href="#"
@@ -192,7 +179,70 @@ const checkUserInfo = () => {
                 >
             </li>
         `;
+    } else {
+        navLoginContent.innerHTML = `
+            <li class="nav-item me-2">
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal"
+                    >Sign In</
+                >
+            </li>
+            <li class="nav-item me-2">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</button>
+            </li>
+        `;
     }
 };
+
+btnLogin.addEventListener("click", () => {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const storage = localStorage.getItem("user");
+
+    if (storage !== null) {
+        if (storage.username === username && storage.password === password) {
+            sessionStorage.setItem("authorize", "true");
+            Toastify({
+                text: "Login Berhasil",
+                duration: 3000,
+            }).showToast();
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        }
+    } else {
+        Toastify({
+            text: "Wrong username or password",
+            duration: 3000,
+        }).showToast();
+    }
+});
+
+btnRegister.addEventListener("click", () => {
+    const username = document.getElementById("usernameRegister").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("passwordRegister").value;
+
+    const userData = {
+        name: username,
+        email: email,
+        password: password,
+    };
+    if (username !== null && email !== null && password !== null) {
+        localStorage.setItem("user", JSON.stringify(userData));
+        sessionStorage.setItem("authorize", "true");
+        Toastify({
+            text: "Register Successfully",
+            duration: 3000,
+        }).showToast();
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    } else {
+        Toastify({
+            text: "Please fill all data",
+            duration: 3000,
+        }).showToast();
+    }
+});
 
 window.onload = checkUserInfo;
